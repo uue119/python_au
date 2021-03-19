@@ -1,9 +1,11 @@
 from copy import deepcopy
 
+
 class Node:
     def __init__(self, value=None, next=None) -> None:
         self.value = char_to_num(value)
         self.next = next
+
 
 class HexNumber:
     def __init__(self, string=None) -> None:
@@ -56,21 +58,25 @@ class HexNumber:
                     cur.value -= 16
             cur = cur.next
 
+
 def check_num(string) -> bool:
     for char in string:
         if not check_char(char):
             return False
     return True
 
+
 def check_char(char) -> bool:
     if char.isdecimal() or char.isupper():
         return True
     return False
 
+
 def char_to_num(char) -> hex:
     if ord(char) - ord('A') < 0:
         return int(char)
     return int(ord(char) - ord('A') + 10)
+
 
 def num_to_char(num) -> str:
     if num < 10:
